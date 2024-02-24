@@ -1,5 +1,3 @@
-
-
 import Commerce from '../Commerce'
 import Header from '../Header'
 

@@ -1,4 +1,4 @@
-// PriceComparison.js
+
 
 import React, { Component } from 'react';
 import Cookies from 'js-cookie';
@@ -66,26 +66,25 @@ class PriceComparison extends Component {
 
   comparePrices = () => {
     const { products1, products2, searchQuery } = this.state;
-  
+
     // Check if searchQuery is non-empty before comparing prices
     if (searchQuery.trim() !== '') {
       const allProducts = [...products1, ...products2];
-  
+
       const filteredProducts = allProducts.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
-  
+
       this.setState({
         filteredProducts,
       });
     } else {
-      // If search query is empty, reset the filteredProducts
       this.setState({
         filteredProducts: [],
       });
     }
   };
-  
+
 
   handleSearchInputChange = (event) => {
     const searchQuery = event.target.value;
@@ -103,20 +102,26 @@ class PriceComparison extends Component {
       <>
         <Header />
         <div className='main-div'>
-          <h2 className='title'>Price Comparison</h2>
+          <h2 className='title'>🛒 Price Comparison</h2>
           <div>
-            <label className='brand'>Search Product Title:</label>
-            <input
-              type='text'
-              value={searchQuery}
-              onChange={this.handleSearchInputChange}
-            />
+              {/* <label className='brand'>Search Product Title:</label> */}
+              <input
+                type='text'
+                value={searchQuery}
+                onChange={this.handleSearchInputChange}
+                className='search-input'
+                placeholder='Search Product Title'
+              />
           </div>
 
 
           {filteredProducts.length > 0 && (
             <div>
               <h3 className='products'>Filtered Products:</h3>
+              <div className='main-products'>
+                <h1>Products 1</h1>
+                <h1>Products 2</h1>
+              </div>
               <div className='main-product'>
                 {filteredProducts.map((product, index) => (
                   <div key={index}>
@@ -147,6 +152,7 @@ class PriceComparison extends Component {
           )}
 
         </div>
+
       </>
     );
   }

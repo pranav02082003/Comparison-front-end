@@ -7,7 +7,7 @@ import axios from 'axios'
 class AllProductsSection extends Component {
   state = {
     productsList: [],
-    isLoading: false,
+    // isLoading: false,
     newProducts : []
   };
 
@@ -28,7 +28,7 @@ class AllProductsSection extends Component {
       return {
         title: product.title,
         brand: product.brand,
-        price: product.price, // Apply the price multiplier
+        price: product.price,
         id: product.id,
         image_url: product.image_url,
         rating: product.rating,
@@ -61,7 +61,7 @@ class AllProductsSection extends Component {
         const updatedData = fetchedData.products.map((product) => ({
           title: product.title,
           brand: product.brand,
-          price: product.price, // Apply the price multiplier
+          price: product.price,
           id: product.id,
           image_url: product.image_url,
           rating: product.rating,
