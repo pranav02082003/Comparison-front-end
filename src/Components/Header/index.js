@@ -1,14 +1,9 @@
 import {Link} from 'react-router-dom'
-import Cookies from 'js-cookie'
-import { Navigate } from 'react-router-dom'
 
 import './index.css'
 
 const Header = props => {
-  const onClickLogout = () => {
-    Cookies.remove('jwt_token')
-    return <Navigate to="/login"/>
-  }
+  
   return (
     <nav className="nav-header">
       <div className="nav-content">
@@ -33,24 +28,7 @@ const Header = props => {
             <li>Price Comparison</li>
           </Link>
         </ul>
-        <button
-          type="button"
-          className="logout-desktop-btn"
-          onClick={onClickLogout}
-        >
-          Logout
-        </button>
-        <button
-          type="button"
-          className="logout-mobile-btn"
-          onClick={onClickLogout}
-        >
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
-            alt="logout icon"
-            className="logout-icon"
-          />
-        </button>
+        
       </div>
       <div className="nav-menu-mobile">
         <ul className="nav-menu-list-mobile">

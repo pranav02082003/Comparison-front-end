@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import Cookies from 'js-cookie';
 import ProductCard from '../ProductCard';
 import './index.css';
 import axios from 'axios'
@@ -44,7 +43,7 @@ class AllProductsSection extends Component {
       isLoading: true,
     });
 
-    const jwtToken = Cookies.get('jwt_token');
+    const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MzI0NjQzOTF9.uMQGectyntVY8v7b-y3c4Y6eNolgFguQDb_RJ-tzL58';
     const apiUrl = 'https://apis.ccbp.in/products';
     const options1 = {
       headers: {
