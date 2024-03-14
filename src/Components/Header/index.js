@@ -19,10 +19,10 @@ const Header = props => {
             <li>Home</li>
           </Link>
           <Link to="/productsapi" className="nav-link">
-            <li>Products1</li>
+            <li>A Mart</li>
           </Link>
           <Link to="/products" className="nav-link">
-            <li>Products2</li>
+            <li>B Mart</li>
           </Link>
           <Link to="/price" className="nav-link">
             <li>Price Comparison</li>

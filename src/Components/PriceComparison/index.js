@@ -119,8 +119,8 @@ class PriceComparison extends Component {
             <div>
               <h3 className='products'>Filtered Products:</h3>
               <div className='main-products'>
-                <h1>Products 1</h1>
-                <h1>Products 2</h1>
+                <h1>A Mart</h1>
+                <h1>B Mart</h1>
               </div>
               <div className='main-product'>
                 {filteredProducts.map((product, index) => (

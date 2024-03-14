@@ -6,7 +6,6 @@ import axios from 'axios'
 class AllProductsSection extends Component {
   state = {
     productsList: [],
-    // isLoading: false,
     newProducts : []
   };
 
@@ -22,26 +21,23 @@ class AllProductsSection extends Component {
     })
   }
 
-  handleClick = () => {
-    const updatedData = this.state.productsList.map((product) => {
-      return {
-        title: product.title,
-        brand: product.brand,
-        price: product.price,
-        id: product.id,
-        image_url: product.image_url,
-        rating: product.rating,
-      }
-    })
-    axios.post("http://localhost:4000/api/products",updatedData).then((res) => {
-      console.log(res)
-    }).catch((err) => console.log(err))
-  }
+  // handleClick = () => {
+  //   const updatedData = this.state.productsList.map((product) => {
+  //     return {
+  //       title: product.title,
+  //       brand: product.brand,
+  //       price: product.price,
+  //       id: product.id,
+  //       image_url: product.image_url,
+  //       rating: product.rating,
+  //     }
+  //   })
+  //   axios.post("http://localhost:4000/api/products",updatedData).then((res) => {
+  //     console.log(res)
+  //   }).catch((err) => console.log(err))
+  // }
 
   getProducts = async () => {
-    this.setState({
-      isLoading: true,
-    });
 
     const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MzI0NjQzOTF9.uMQGectyntVY8v7b-y3c4Y6eNolgFguQDb_RJ-tzL58';
     const apiUrl = 'https://apis.ccbp.in/products';
@@ -68,15 +64,12 @@ class AllProductsSection extends Component {
        
         this.setState({
           productsList: updatedData,
-          isLoading: false,
         });
       }
       
     } catch (error) {
       console.error('Error fetching products:', error);
-      this.setState({
-        isLoading: false,
-      });
+      
     }
   };
 
@@ -97,15 +90,11 @@ class AllProductsSection extends Component {
   };
 
   render() {
-    const { isLoading } = this.state;
-    return isLoading ? this.renderLoader() : this.renderProductsList();
+    
+    return  this.renderProductsList();
   }
 
-  renderLoader = () => (
-    <div className="products-loader-container">
-      {/* Loader component */}
-    </div>
-  );
+  
 }
 
 export default AllProductsSection;

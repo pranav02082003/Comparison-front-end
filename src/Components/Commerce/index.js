@@ -7,7 +7,6 @@ import './index.css'
 class Commerce extends Component {
   state = {
     productsList: [],
-    isLoading: false,
   }
 
   componentDidMount() {
@@ -15,9 +14,7 @@ class Commerce extends Component {
   }
 
   getProducts = async () => {
-    this.setState({
-      isLoading: true,
-    })
+    
     const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MzI0NjQzOTF9.uMQGectyntVY8v7b-y3c4Y6eNolgFguQDb_RJ-tzL58'
     const apiUrl = 'https://apis.ccbp.in/products'
     const options = {
@@ -39,7 +36,6 @@ class Commerce extends Component {
       }))
       this.setState({
         productsList: updatedData,
-        isLoading: false,
       })
     }
   }
@@ -58,15 +54,10 @@ class Commerce extends Component {
     )
   }
 
-  renderLoader = () => (
-    <div className="products-loader-container">
-      {/* <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" /> */}
-    </div>
-  )
+  
 
   render() {
-    const {isLoading} = this.state
-    return isLoading ? this.renderLoader() : this.renderProductsList()
+    return  this.renderProductsList()
   }
 }
 
