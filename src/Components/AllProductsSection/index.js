@@ -1,7 +1,7 @@
+import axios from 'axios';
 import { Component } from 'react';
 import ProductCard from '../ProductCard';
 import './index.css';
-import axios from 'axios'
 
 class AllProductsSection extends Component {
   state = {
