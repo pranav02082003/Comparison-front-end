@@ -15,7 +15,7 @@ class AllProductsSection extends Component {
   }
 
   getNewProducts = async () => {
-    axios.get('http://localhost:4000/data').then((res) => {
+    axios.get('https://comparison-back-end.onrender.com/data').then((res) => {
       console.log(res.data)
       this.setState({newProducts:res.data})
     })
@@ -61,7 +61,6 @@ class AllProductsSection extends Component {
           image_url: product.image_url,
           rating: product.rating,
         }));
-       
         this.setState({
           productsList: updatedData,
         });

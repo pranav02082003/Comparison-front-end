@@ -44,7 +44,7 @@ class PriceComparison extends Component {
   };
 
   getProducts2 = async () => {
-    const apiUrl2 = 'http://localhost:4000/data';
+    const apiUrl2 = 'https://comparison-back-end.onrender.com/data';
     const options = {
       method: 'GET',
     };
@@ -101,9 +101,10 @@ class PriceComparison extends Component {
     return (
       <>
         <Header />
-        <div className='main-div'>
-          <h2 className='title'>🛒 Price Comparison</h2>
-          <div>
+          <div className='main-div'>
+            <h2 className='title'>🛒 Price Comparison</h2>
+
+            <div>
               {/* <label className='brand'>Search Product Title:</label> */}
               <input
                 type='text'
@@ -112,46 +113,46 @@ class PriceComparison extends Component {
                 className='search-input'
                 placeholder='Search Product Title'
               />
-          </div>
-
-
-          {filteredProducts.length > 0 && (
-            <div>
-              <h3 className='products'>Filtered Products:</h3>
-              <div className='main-products'>
-                <h1>A Mart</h1>
-                <h1>B Mart</h1>
-              </div>
-              <div className='main-product'>
-                {filteredProducts.map((product, index) => (
-                  <div key={index}>
-                    <li className='product-item'>
-                      <img
-                        src={product.image_url}
-                        alt='product'
-                        className='thumbnail'
-                      />
-                      <h1 className='title'>{product.title}</h1>
-                      <p className='brand'>by {product.brand}</p>
-                      <div className='product-details'>
-                        <p className='price'>Rs {product.price}/-</p>
-                        <div className='rating-container'>
-                          <p className='rating'>{product.rating}</p>
-                          <img
-                            src='https://assets.ccbp.in/frontend/react-js/star-img.png'
-                            alt='star'
-                            className='star'
-                          />
-                        </div>
-                      </div>
-                    </li>
-                  </div>
-                ))}
-              </div>
             </div>
-          )}
+            <div>
+              {filteredProducts.length > 0 && (
+                <div>
+                  <h3 className='products'>Filtered Products:</h3>
+                  <div className='main-products'>
+                    <h1>A Mart</h1>
+                    <h1>B Mart</h1>
+                  </div>
+                  <div className='main-product'>
+                    {filteredProducts.map((product, index) => (
+                      <div key={index}>
+                        <li className='product-item'>
+                          <img
+                            src={product.image_url}
+                            alt='product'
+                            className='thumbnail'
+                          />
+                          <h1 className='title'>{product.title}</h1>
+                          <p className='brand'>by {product.brand}</p>
+                          <div className='product-details'>
+                            <p className='price'>Rs {product.price}/-</p>
+                            <div className='rating-container'>
+                              <p className='rating'>{product.rating}</p>
+                              <img
+                                src='https://assets.ccbp.in/frontend/react-js/star-img.png'
+                                alt='star'
+                                className='star'
+                              />
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
-        </div>
+          </div>
 
       </>
     );
