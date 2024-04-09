@@ -77,7 +77,7 @@ class AllProductsSection extends Component {
     const {newProducts} = this.state;
     return (
       <>
-        <h1 className="products-list-heading">All Products</h1>
+        <h1 className="products-list-heading">B MART</h1>
         {/* <button onClick={this.handleClick}>Click</button> */}
         <ul className="products-list">
           {newProducts.map((product) => (

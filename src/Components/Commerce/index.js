@@ -44,7 +44,7 @@ class Commerce extends Component {
     const {productsList} = this.state
     return (
       <>
-        <h1 className="products-list-heading">All Products</h1>
+        <h1 className="products-list-heading">A MART</h1>
         <ul className="products-list">
           {productsList.map(product => (
             <ProductCard productData={product} key={product.id} />
